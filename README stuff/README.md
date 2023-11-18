@@ -1,6 +1,6 @@
-![hw4.png]
+![Screenshot of a comment on a GitHub issue showing an image, added in the Markdown, of an Octocat smiling and raising a tentacle.](https://github.com/d3mosth3n3s/SuperTicTacToe-2.0/blob/main/README%20stuff/hw4.png)
 ***
-Readme File: Your GitHub repository should include a detailed README file that provides information about your project's purpose, how to build/run it, and any dependencies or special instructions.
+
 # What is Super Tic Tac Toe?
 
 Super Tic Tac Toe is an extended version of the classic game Tic Tac Toe. In the traditional version, players aim to get three of their symbols (X or O) in a row, either horizontally, vertically, or diagonally, on a 3x3 grid. Super Tic Tac Toe takes this concept to a larger scale.
