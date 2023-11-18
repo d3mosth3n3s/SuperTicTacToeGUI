@@ -1,14 +1,17 @@
 ﻿//---------------------------------------------------------------------------
-// TODO: - Account for a tied game
+// TODO:
+// - Account for a tied game
 // - fix win conditions
-// - start menu
+// - start menu (honestly nah)
 // - play again? button
-// - music and sound effects
+// - music and sound effects (done music, sound effects too much)
 // - maybe figure out how to make a standalone exe
 // - clean up the code
 //
 #include <fmx.h>
 #include <Vcl.Controls.hpp>
+#include <Windows.h>
+#include <mmsystem.h>
 #pragma hdrstop
 
 #include "STTT.h"
@@ -523,8 +526,8 @@ __fastcall TForm3::TForm3(TComponent* Owner)
     : TForm(Owner)
 {
 
-
-    //button array??
+	 //PlaySound(TEXT("ipanema.wav"), NULL, SND_FILENAME | SND_ASYNC);
+	//button array??
 
 }
 //---------------------------------------------------------------------------
@@ -780,19 +783,52 @@ void __fastcall TForm3::ButtonClick(TObject* Sender)
             }
         }
 	}
-	*/
+
 	if (Q1Winner != false && Q1Winner == Q2Winner && Q1Winner == Q3Winner) {
-        winImage->Opacity = 1;
-        for (int i = 1; i <= 81; i++) {
-            TButton* button = dynamic_cast<TButton*>(FindComponent("Button" + IntToStr(i)));
+		winImage->Opacity = 1;
+		for (int i = 1; i <= 81; i++) {
+			TButton* button = dynamic_cast<TButton*>(FindComponent("Button" + IntToStr(i)));
 
-            if (button != NULL) {
-                button->Enabled = false;
-            }
-        }
-    }
+			if (button != NULL) {
+				button->Enabled = false;
+			}
+		}
+	}
 
+	  */
+	// horizonal big win conditions FOR X
+	if (Q1Winner != false && X1->Opacity == 1 && X2->Opacity == 1 && X3->Opacity == 1) {
+		winImage->Opacity = 1;
+		for (int i = 1; i <= 81; i++) {
+			TButton* button = dynamic_cast<TButton*>(FindComponent("Button" + IntToStr(i)));
 
+			if (button != NULL) {
+				button->Enabled = false;
+			}
+		}
+	}
+
+	if (Q4Winner != false && X4->Opacity == 1 && X5->Opacity == 1 && X6->Opacity == 1) {
+		winImage->Opacity = 1;
+		for (int i = 1; i <= 81; i++) {
+			TButton* button = dynamic_cast<TButton*>(FindComponent("Button" + IntToStr(i)));
+
+			if (button != NULL) {
+				button->Enabled = false;
+			}
+		}
+	}
+
+	if (Q7Winner != false && X7->Opacity == 1 && X8->Opacity == 1 && X9->Opacity == 1) {
+		winImage->Opacity = 1;
+		for (int i = 1; i <= 81; i++) {
+			TButton* button = dynamic_cast<TButton*>(FindComponent("Button" + IntToStr(i)));
+
+			if (button != NULL) {
+				button->Enabled = false;
+			}
+		}
+	}
 
 
 
@@ -1018,6 +1054,7 @@ void __fastcall TForm3::ButtonClick(TObject* Sender)
 }
 
 //---------------------------------------------------------------------------
+
 
 
 

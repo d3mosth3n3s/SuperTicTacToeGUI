@@ -214,9 +214,9 @@ __published:	// IDE-managed Components
 	TImage* winImage;
 	TImage* Image1;
 	TImage* xIndicate;
-	TLabel* Z;
 	TImage *tiedImage;
 	TImage *oIndicate;
+	TImage *Image2;
 	void __fastcall ButtonClick(TObject* Sender);
 
 
