@@ -211,12 +211,13 @@ __published:	// IDE-managed Components
 	TImage* X7;
 	TImage* X8;
 	TImage* X9;
-	TImage* winImage;
+	TImage *XWIN;
 	TImage* Image1;
 	TImage* xIndicate;
 	TImage *tiedImage;
 	TImage *oIndicate;
-	TImage *Image2;
+	TImage *GUIBorder;
+	TImage *OWIN;
 	void __fastcall ButtonClick(TObject* Sender);
 
 

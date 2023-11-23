@@ -1,10 +1,7 @@
 //---------------------------------------------------------------------------
 // TODO:
 // - Account for a tied game
-// - fix win conditions
-// - start menu (honestly nah)
 // - play again? button
-// - music and sound effects (done music, sound effects too much)
 // - maybe figure out how to make a standalone exe
 // - clean up the code
 //
@@ -772,6 +769,9 @@ void __fastcall TForm3::ButtonClick(TObject* Sender)
     bool Q8Winner = CheckIsSmallWinnerQ8(winnerSymbol);
 	bool Q9Winner = CheckIsSmallWinnerQ9(winnerSymbol);
 
+
+
+
 	/*  maybe something to deal with ties
 	if (Q1Winner != false && Q2Winner != false && Q3Winner != false && Q4Winner != false && Q5Winner != false && Q6Winner != false && Q7Winner != false && Q8Winner != false && Q9Winner != false) {
 		tiedImage->Opacity = 1;
@@ -796,9 +796,11 @@ void __fastcall TForm3::ButtonClick(TObject* Sender)
 	}
 
 	  */
+
+
 	// horizonal big win conditions FOR X
 	if (Q1Winner != false && X1->Opacity == 1 && X2->Opacity == 1 && X3->Opacity == 1) {
-		winImage->Opacity = 1;
+		XWIN->Opacity = 1;
 		for (int i = 1; i <= 81; i++) {
 			TButton* button = dynamic_cast<TButton*>(FindComponent("Button" + IntToStr(i)));
 
@@ -809,7 +811,7 @@ void __fastcall TForm3::ButtonClick(TObject* Sender)
 	}
 
 	if (Q4Winner != false && X4->Opacity == 1 && X5->Opacity == 1 && X6->Opacity == 1) {
-		winImage->Opacity = 1;
+		XWIN->Opacity = 1;
 		for (int i = 1; i <= 81; i++) {
 			TButton* button = dynamic_cast<TButton*>(FindComponent("Button" + IntToStr(i)));
 
@@ -820,7 +822,7 @@ void __fastcall TForm3::ButtonClick(TObject* Sender)
 	}
 
 	if (Q7Winner != false && X7->Opacity == 1 && X8->Opacity == 1 && X9->Opacity == 1) {
-		winImage->Opacity = 1;
+		XWIN->Opacity = 1;
 		for (int i = 1; i <= 81; i++) {
 			TButton* button = dynamic_cast<TButton*>(FindComponent("Button" + IntToStr(i)));
 
@@ -829,6 +831,160 @@ void __fastcall TForm3::ButtonClick(TObject* Sender)
 			}
 		}
 	}
+
+
+
+		// vertical big win conditions FOR X
+	if (Q1Winner != false && X1->Opacity == 1 && X4->Opacity == 1 && X7->Opacity == 1) {
+		XWIN->Opacity = 1;
+		for (int i = 1; i <= 81; i++) {
+			TButton* button = dynamic_cast<TButton*>(FindComponent("Button" + IntToStr(i)));
+
+			if (button != NULL) {
+				button->Enabled = false;
+			}
+		}
+	}
+
+	if (Q2Winner != false && X2->Opacity == 1 && X5->Opacity == 1 && X8->Opacity == 1) {
+		XWIN->Opacity = 1;
+		for (int i = 1; i <= 81; i++) {
+			TButton* button = dynamic_cast<TButton*>(FindComponent("Button" + IntToStr(i)));
+
+			if (button != NULL) {
+				button->Enabled = false;
+			}
+		}
+	}
+
+	if (Q3Winner != false && X3->Opacity == 1 && X6->Opacity == 1 && X9->Opacity == 1) {
+		XWIN->Opacity = 1;
+		for (int i = 1; i <= 81; i++) {
+			TButton* button = dynamic_cast<TButton*>(FindComponent("Button" + IntToStr(i)));
+
+			if (button != NULL) {
+				button->Enabled = false;
+			}
+		}
+	}
+
+			// diagonal big win conditions FOR X
+	if (Q1Winner != false && X1->Opacity == 1 && X5->Opacity == 1 && X9->Opacity == 1) {
+		XWIN->Opacity = 1;
+		for (int i = 1; i <= 81; i++) {
+			TButton* button = dynamic_cast<TButton*>(FindComponent("Button" + IntToStr(i)));
+
+			if (button != NULL) {
+				button->Enabled = false;
+			}
+		}
+	}
+
+	if (Q3Winner != false && X3->Opacity == 1 && X5->Opacity == 1 && X7->Opacity == 1) {
+		XWIN->Opacity = 1;
+		for (int i = 1; i <= 81; i++) {
+			TButton* button = dynamic_cast<TButton*>(FindComponent("Button" + IntToStr(i)));
+
+			if (button != NULL) {
+				button->Enabled = false;
+			}
+		}
+	}
+
+	// horizonal big win conditions FOR O
+	if (Q1Winner != false && O1->Opacity == 1 && O2->Opacity == 1 && O3->Opacity == 1) {
+		OWIN->Opacity = 1;
+		for (int i = 1; i <= 81; i++) {
+			TButton* button = dynamic_cast<TButton*>(FindComponent("Button" + IntToStr(i)));
+
+			if (button != NULL) {
+				button->Enabled = false;
+			}
+		}
+	}
+
+	if (Q4Winner != false && O4->Opacity == 1 && O5->Opacity == 1 && O6->Opacity == 1) {
+		OWIN->Opacity = 1;
+		for (int i = 1; i <= 81; i++) {
+			TButton* button = dynamic_cast<TButton*>(FindComponent("Button" + IntToStr(i)));
+
+			if (button != NULL) {
+				button->Enabled = false;
+			}
+		}
+	}
+
+	if (Q7Winner != false && O7->Opacity == 1 && O8->Opacity == 1 && O9->Opacity == 1) {
+		OWIN->Opacity = 1;
+		for (int i = 1; i <= 81; i++) {
+			TButton* button = dynamic_cast<TButton*>(FindComponent("Button" + IntToStr(i)));
+
+			if (button != NULL) {
+				button->Enabled = false;
+			}
+		}
+	}
+
+
+			// vertical big win conditions FOR O
+	if (Q1Winner != false && O1->Opacity == 1 && O4->Opacity == 1 && O7->Opacity == 1) {
+		OWIN->Opacity = 1;
+		for (int i = 1; i <= 81; i++) {
+			TButton* button = dynamic_cast<TButton*>(FindComponent("Button" + IntToStr(i)));
+
+			if (button != NULL) {
+				button->Enabled = false;
+			}
+		}
+	}
+
+	if (Q2Winner != false && O2->Opacity == 1 && O5->Opacity == 1 && O8->Opacity == 1) {
+		OWIN->Opacity = 1;
+		for (int i = 1; i <= 81; i++) {
+			TButton* button = dynamic_cast<TButton*>(FindComponent("Button" + IntToStr(i)));
+
+			if (button != NULL) {
+				button->Enabled = false;
+			}
+		}
+	}
+
+	if (Q3Winner != false && O3->Opacity == 1 && O6->Opacity == 1 && O9->Opacity == 1) {
+		OWIN->Opacity = 1;
+		for (int i = 1; i <= 81; i++) {
+			TButton* button = dynamic_cast<TButton*>(FindComponent("Button" + IntToStr(i)));
+
+			if (button != NULL) {
+				button->Enabled = false;
+			}
+		}
+	}
+
+			// diagonal big win conditions FOR O
+	if (Q1Winner != false && O1->Opacity == 1 && O5->Opacity == 1 && O9->Opacity == 1) {
+		OWIN->Opacity = 1;
+		for (int i = 1; i <= 81; i++) {
+			TButton* button = dynamic_cast<TButton*>(FindComponent("Button" + IntToStr(i)));
+
+			if (button != NULL) {
+				button->Enabled = false;
+			}
+		}
+	}
+
+	if (Q3Winner != false && O3->Opacity == 1 && O5->Opacity == 1 && O7->Opacity == 1) {
+		OWIN->Opacity = 1;
+		for (int i = 1; i <= 81; i++) {
+			TButton* button = dynamic_cast<TButton*>(FindComponent("Button" + IntToStr(i)));
+
+			if (button != NULL) {
+				button->Enabled = false;
+			}
+		}
+	}
+
+
+
 
 
 
