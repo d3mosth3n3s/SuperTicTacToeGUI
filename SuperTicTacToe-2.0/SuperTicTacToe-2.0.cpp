@@ -7,14 +7,14 @@
 #pragma hdrstop
 #include <System.StartUpCopy.hpp>
 //---------------------------------------------------------------------------
-USEFORM("STTT.cpp", Form3);
+USEFORM("STTT.cpp", SuperTicTacToe);
 //---------------------------------------------------------------------------
 extern "C" int FMXmain()
 {
 	try
 	{
 		Application->Initialize();
-		Application->CreateForm(__classid(TForm3), &Form3);
+		Application->CreateForm(__classid(TSuperTicTacToe), &SuperTicTacToe);
 		Application->Run();
 	}
 	catch (Exception &exception)

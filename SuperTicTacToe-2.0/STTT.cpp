@@ -15,14 +15,14 @@
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma resource "*.fmx"
-TForm3* Form3;
+TSuperTicTacToe* SuperTicTacToe;
 char currentPlayerSymbol = 'X';
 UnicodeString winnerSymbol;
 TButton* lastClickedButton = nullptr;
 int currentGrid;
 bool isQ3Winner = false;
 
-bool TForm3::CheckIsSmallWinnerQ1(UnicodeString& winnerSymbol)
+bool TSuperTicTacToe::CheckIsSmallWinnerQ1(UnicodeString& winnerSymbol)
 {
     if (!Button1->Text.IsEmpty() && Button1->Text == Button2->Text && Button1->Text == Button3->Text) {
         winnerSymbol = Button1->Text;
@@ -62,7 +62,7 @@ bool TForm3::CheckIsSmallWinnerQ1(UnicodeString& winnerSymbol)
 }
 
 //_____________________________________________________________
-bool TForm3::CheckIsSmallWinnerQ2(UnicodeString& winnerSymbol)
+bool TSuperTicTacToe::CheckIsSmallWinnerQ2(UnicodeString& winnerSymbol)
 {
     if (!Button10->Text.IsEmpty() && Button10->Text == Button11->Text && Button10->Text == Button12->Text) {
         winnerSymbol = Button10->Text;
@@ -102,7 +102,7 @@ bool TForm3::CheckIsSmallWinnerQ2(UnicodeString& winnerSymbol)
 }
 
 //_____________________________________
-bool TForm3::CheckIsSmallWinnerQ3(UnicodeString& winnerSymbol)
+bool TSuperTicTacToe::CheckIsSmallWinnerQ3(UnicodeString& winnerSymbol)
 {
     // Check each row, column, and diagonal for a winning combination.
     if (!Button19->Text.IsEmpty() && Button19->Text == Button20->Text && Button19->Text == Button21->Text) {
@@ -147,7 +147,7 @@ bool TForm3::CheckIsSmallWinnerQ3(UnicodeString& winnerSymbol)
 }
 //_____________________________________________
 
-bool TForm3::CheckIsSmallWinnerQ4(UnicodeString& winnerSymbol)
+bool TSuperTicTacToe::CheckIsSmallWinnerQ4(UnicodeString& winnerSymbol)
 {
     // Check each row, column, and diagonal for a winning combination.
     if (!Button28->Text.IsEmpty() && Button28->Text == Button29->Text && Button28->Text == Button30->Text) {
@@ -189,7 +189,7 @@ bool TForm3::CheckIsSmallWinnerQ4(UnicodeString& winnerSymbol)
 }
 
 //_____________________________________________
-bool TForm3::CheckIsSmallWinnerQ5(UnicodeString& winnerSymbol)
+bool TSuperTicTacToe::CheckIsSmallWinnerQ5(UnicodeString& winnerSymbol)
 {
     // Check each row, column, and diagonal for a winning combination.
     if (!Button37->Text.IsEmpty() && Button37->Text == Button38->Text && Button37->Text == Button39->Text) {
@@ -230,7 +230,7 @@ bool TForm3::CheckIsSmallWinnerQ5(UnicodeString& winnerSymbol)
     return false;
 }
 //____________________________________________
-bool TForm3::CheckIsSmallWinnerQ6(UnicodeString& winnerSymbol)
+bool TSuperTicTacToe::CheckIsSmallWinnerQ6(UnicodeString& winnerSymbol)
 {
     // Check each row, column, and diagonal for a winning combination.
     if (!Button46->Text.IsEmpty() && Button46->Text == Button47->Text && Button46->Text == Button48->Text) {
@@ -271,7 +271,7 @@ bool TForm3::CheckIsSmallWinnerQ6(UnicodeString& winnerSymbol)
     return false;
 }
 //____________________________________________
-bool TForm3::CheckIsSmallWinnerQ7(UnicodeString& winnerSymbol)
+bool TSuperTicTacToe::CheckIsSmallWinnerQ7(UnicodeString& winnerSymbol)
 {
     // Check each row, column, and diagonal for a winning combination.
     if (!Button55->Text.IsEmpty() && Button55->Text == Button56->Text && Button55->Text == Button57->Text) {
@@ -313,7 +313,7 @@ bool TForm3::CheckIsSmallWinnerQ7(UnicodeString& winnerSymbol)
 }
 
 //______________________________________________
-bool TForm3::CheckIsSmallWinnerQ8(UnicodeString& winnerSymbol)
+bool TSuperTicTacToe::CheckIsSmallWinnerQ8(UnicodeString& winnerSymbol)
 {
     // Check each row, column, and diagonal for a winning combination.
     if (!Button64->Text.IsEmpty() && Button64->Text == Button65->Text && Button64->Text == Button66->Text) {
@@ -355,7 +355,7 @@ bool TForm3::CheckIsSmallWinnerQ8(UnicodeString& winnerSymbol)
 }
 
 //_______________________________________________
-bool TForm3::CheckIsSmallWinnerQ9(UnicodeString& winnerSymbol)
+bool TSuperTicTacToe::CheckIsSmallWinnerQ9(UnicodeString& winnerSymbol)
 {
     // Check each row, column, and diagonal for a winning combination.
     if (!Button73->Text.IsEmpty() && Button73->Text == Button74->Text && Button73->Text == Button75->Text) {
@@ -398,7 +398,7 @@ bool TForm3::CheckIsSmallWinnerQ9(UnicodeString& winnerSymbol)
 
 //____________________________________________
 
-int TForm3::NextGrid(TButton* lastClickedButton)
+int TSuperTicTacToe::NextGrid(TButton* lastClickedButton)
 {
     int nextGrid = 0; // Initialize currentGrid to 0
 
@@ -519,7 +519,7 @@ int TForm3::NextGrid(TButton* lastClickedButton)
 
 
 //---------------------------------------------------------------------------
-__fastcall TForm3::TForm3(TComponent* Owner)
+__fastcall TSuperTicTacToe::TSuperTicTacToe(TComponent* Owner)
     : TForm(Owner)
 {
 
@@ -529,7 +529,7 @@ __fastcall TForm3::TForm3(TComponent* Owner)
 }
 //---------------------------------------------------------------------------
 
-void TForm3::ClearPanels() {
+void TSuperTicTacToe::ClearPanels() {
     Panel1->Opacity = 0;
     Panel1->HitTest = false;
     Panel2->Opacity = 0;
@@ -551,7 +551,7 @@ void TForm3::ClearPanels() {
 }
 //-------------------
 
-void __fastcall TForm3::ButtonClick(TObject* Sender)
+void __fastcall TSuperTicTacToe::ButtonClick(TObject* Sender)
 {
     TButton* clickedButton = dynamic_cast<TButton*>(Sender);
     clickedButton->Text = currentPlayerSymbol;
@@ -583,7 +583,7 @@ void __fastcall TForm3::ButtonClick(TObject* Sender)
         else {
             O1->Opacity = 1;
         }
-        for (int i = 1; i <= 9; i++) {
+		for (int i = 1; i <= 9; i++) {
             TButton* button = dynamic_cast<TButton*>(FindComponent("Button" + IntToStr(i)));
 
             if (button != NULL) {
@@ -757,8 +757,16 @@ void __fastcall TForm3::ButtonClick(TObject* Sender)
 
 
 
-
-    int openGrid = NextGrid(lastClickedButton);
+	bool Q1Tie = false;
+	bool Q2Tie = false;
+	bool Q3Tie = false;
+	bool Q4Tie = false;
+	bool Q5Tie = false;
+	bool Q6Tie = false;
+	bool Q7Tie = false;
+	bool Q8Tie = false;
+	bool Q9Tie = false;
+	int openGrid = NextGrid(lastClickedButton);
     bool Q1Winner = CheckIsSmallWinnerQ1(winnerSymbol);
     bool Q2Winner = CheckIsSmallWinnerQ2(winnerSymbol);
     bool Q3Winner = CheckIsSmallWinnerQ3(winnerSymbol);
@@ -769,6 +777,137 @@ void __fastcall TForm3::ButtonClick(TObject* Sender)
     bool Q8Winner = CheckIsSmallWinnerQ8(winnerSymbol);
 	bool Q9Winner = CheckIsSmallWinnerQ9(winnerSymbol);
 
+
+	if (Q1Winner == false && Button1->Enabled == false &&
+	Button2->Enabled == false &&
+	Button3->Enabled == false &&
+	Button4->Enabled == false &&
+	Button5->Enabled == false &&
+	Button6->Enabled == false &&
+	Button7->Enabled == false &&
+	Button8->Enabled == false &&
+	Button9->Enabled == false) {
+		aTIEIMG->Opacity = 1;
+		aTIEIMG->HitTest = true;
+		Q1Tie = true;
+	}
+		if (Q2Winner == false && Button10->Enabled == false &&
+	Button11->Enabled == false &&
+    Button12->Enabled == false &&
+	Button13->Enabled == false &&
+	Button14->Enabled == false &&
+	Button15->Enabled == false &&
+	Button16->Enabled == false &&
+	Button17->Enabled == false &&
+	Button18->Enabled == false) {
+		aTIEIMG2->Opacity = 1;
+		aTIEIMG2->HitTest = true;
+		Q2Tie = true;
+	}
+
+    if (Q3Winner == false && Button19->Enabled == false &&
+    Button20->Enabled == false &&
+    Button21->Enabled == false &&
+    Button22->Enabled == false &&
+    Button23->Enabled == false &&
+    Button24->Enabled == false &&
+    Button25->Enabled == false &&
+    Button26->Enabled == false &&
+    Button27->Enabled == false) {
+    aTIEIMG3->Opacity = 1;
+    aTIEIMG3->HitTest = true;
+    Q3Tie = true;
+}
+
+if (Q4Winner == false && Button28->Enabled == false &&
+    Button29->Enabled == false &&
+    Button30->Enabled == false &&
+    Button31->Enabled == false &&
+    Button32->Enabled == false &&
+    Button33->Enabled == false &&
+    Button34->Enabled == false &&
+    Button35->Enabled == false &&
+    Button36->Enabled == false) {
+    aTIEIMG4->Opacity = 1;
+    aTIEIMG4->HitTest = true;
+    Q4Tie = true;
+}
+
+if (Q5Winner == false && Button37->Enabled == false &&
+    Button38->Enabled == false &&
+    Button39->Enabled == false &&
+    Button40->Enabled == false &&
+    Button41->Enabled == false &&
+    Button42->Enabled == false &&
+    Button43->Enabled == false &&
+    Button44->Enabled == false &&
+    Button45->Enabled == false) {
+    aTIEIMG5->Opacity = 1;
+    aTIEIMG5->HitTest = true;
+    Q5Tie = true;
+}
+
+
+
+// Q6
+if (Q6Winner == false && Button46->Enabled == false &&
+    Button47->Enabled == false &&
+    Button48->Enabled == false &&
+    Button49->Enabled == false &&
+    Button50->Enabled == false &&
+    Button51->Enabled == false &&
+    Button52->Enabled == false &&
+    Button53->Enabled == false &&
+    Button54->Enabled == false) {
+    aTIEIMG6->Opacity = 1;
+    aTIEIMG6->HitTest = true;
+    Q6Tie = true;
+}
+
+// Q7
+if (Q7Winner == false && Button55->Enabled == false &&
+    Button56->Enabled == false &&
+    Button57->Enabled == false &&
+    Button58->Enabled == false &&
+    Button59->Enabled == false &&
+    Button60->Enabled == false &&
+    Button61->Enabled == false &&
+    Button62->Enabled == false &&
+    Button63->Enabled == false) {
+    aTIEIMG7->Opacity = 1;
+    aTIEIMG7->HitTest = true;
+    Q7Tie = true;
+}
+
+// Q8
+if (Q8Winner == false && Button64->Enabled == false &&
+    Button65->Enabled == false &&
+    Button66->Enabled == false &&
+    Button67->Enabled == false &&
+    Button68->Enabled == false &&
+    Button69->Enabled == false &&
+    Button70->Enabled == false &&
+    Button71->Enabled == false &&
+    Button72->Enabled == false) {
+    aTIEIMG8->Opacity = 1;
+    aTIEIMG8->HitTest = true;
+    Q8Tie = true;
+}
+
+// Q9
+if (Q9Winner == false && Button73->Enabled == false &&
+    Button74->Enabled == false &&
+    Button75->Enabled == false &&
+    Button76->Enabled == false &&
+    Button77->Enabled == false &&
+    Button78->Enabled == false &&
+    Button79->Enabled == false &&
+    Button80->Enabled == false &&
+    Button81->Enabled == false) {
+    aTIEIMG9->Opacity = 1;
+    aTIEIMG9->HitTest = true;
+    Q9Tie = true;
+}
 
 
 
@@ -988,17 +1127,17 @@ void __fastcall TForm3::ButtonClick(TObject* Sender)
 
 
 
-    if (openGrid == 1 && Q1Winner == false) {
-        Panel1->Opacity = 0;
+	if (openGrid == 1 && Q1Winner == false && Q1Tie == false) {
+		Panel1->Opacity = 0;
         Panel1->HitTest = false;
         Panel2->Opacity = 0.5;
         Panel2->HitTest = true;
         Panel3->Opacity = 0.5;
         Panel3->HitTest = true;
-        Panel4->Opacity = 0.5;
-        Panel4->HitTest = true;
-        Panel5->Opacity = 0.5;
-        Panel5->HitTest = true;
+		Panel4->Opacity = 0.5;
+		Panel4->HitTest = true;
+		Panel5->Opacity = 0.5;
+		Panel5->HitTest = true;
         Panel6->Opacity = 0.5;
         Panel6->HitTest = true;
         Panel7->Opacity = 0.5;
@@ -1008,13 +1147,13 @@ void __fastcall TForm3::ButtonClick(TObject* Sender)
         Panel9->Opacity = 0.5;
         Panel9->HitTest = true;
     }
-    else if (openGrid == 1 && Q1Winner == true) {
+	else if ((openGrid == 1 && Q1Winner == true) || (openGrid == 1 && Q1Tie == true)) {
         ClearPanels();
     } // THIS IS DOING IT
-    if (openGrid == 2 && Q2Winner == false) {
+	if (openGrid == 2 && Q2Winner == false && Q2Tie == false) {
         Panel1->Opacity = 0.5;
         Panel1->HitTest = true;
-        Panel2->Opacity = 0;
+		Panel2->Opacity = 0;
         Panel2->HitTest = false;
         Panel3->Opacity = 0.5;
         Panel3->HitTest = true;
@@ -1031,12 +1170,12 @@ void __fastcall TForm3::ButtonClick(TObject* Sender)
         Panel9->Opacity = 0.5;
         Panel9->HitTest = true;
     }
-    else if (openGrid == 2 && Q2Winner == true) {
-        ClearPanels();
+	else if ((openGrid == 2 && Q2Winner == true) || (openGrid == 2 && Q2Tie == true)) {
+		ClearPanels();
     }
-    if (openGrid == 3 && Q3Winner == false) {
+	if (openGrid == 3 && Q3Winner == false && Q3Tie == false) {
         Panel1->Opacity = 0.5;
-        Panel1->HitTest = true;
+		Panel1->HitTest = true;
         Panel2->Opacity = 0.5;
         Panel2->HitTest = true;
         Panel3->Opacity = 0;
@@ -1054,11 +1193,11 @@ void __fastcall TForm3::ButtonClick(TObject* Sender)
         Panel9->Opacity = 0.5;
         Panel9->HitTest = true;
     }
-    else if (openGrid == 3 && Q3Winner == true) {
-        ClearPanels();
+	else if ((openGrid == 3 && Q3Winner == true) || (openGrid == 3 && Q3Tie == true)) {
+		ClearPanels();
     }
-    if (openGrid == 4 && Q4Winner == false) {
-        Panel1->Opacity = 0.5;
+	if (openGrid == 4 && Q4Winner == false && Q4Tie == false) {
+		Panel1->Opacity = 0.5;
         Panel1->HitTest = true;
         Panel2->Opacity = 0.5;
         Panel2->HitTest = true;
@@ -1077,10 +1216,10 @@ void __fastcall TForm3::ButtonClick(TObject* Sender)
         Panel9->Opacity = 0.5;
         Panel9->HitTest = true;
     }
-    else if (openGrid == 4 && Q4Winner == true) {
+	else if ((openGrid == 4 && Q4Winner == true) || (openGrid == 4 && Q4Tie == true)) {
         ClearPanels();
     }
-    if (openGrid == 5 && Q5Winner == false) {
+	if (openGrid == 5 && Q5Winner == false && Q5Tie == false) {
         Panel1->Opacity = 0.5;
         Panel1->HitTest = true;
         Panel2->Opacity = 0.5;
@@ -1100,10 +1239,10 @@ void __fastcall TForm3::ButtonClick(TObject* Sender)
         Panel9->Opacity = 0.5;
         Panel9->HitTest = true;
     }
-    else if (openGrid == 5 && Q5Winner == true) {
+	else if ((openGrid == 5 && Q5Winner == true) || (openGrid == 5 && Q5Tie == true)) {
         ClearPanels();
     }
-    if (openGrid == 6 && Q6Winner == false) {
+	if (openGrid == 6 && Q6Winner == false && Q6Tie == false) {
         Panel1->Opacity = 0.5;
         Panel1->HitTest = true;
         Panel2->Opacity = 0.5;
@@ -1122,11 +1261,11 @@ void __fastcall TForm3::ButtonClick(TObject* Sender)
         Panel8->HitTest = true;
         Panel9->Opacity = 0.5;
         Panel9->HitTest = true;
-    }
-    else if (openGrid == 6 && Q6Winner == true) {
+	}
+	else if ((openGrid == 6 && Q6Winner == true) || (openGrid == 6 && Q6Tie == true)) {
         ClearPanels();
     }
-    if (openGrid == 7 && Q7Winner == false) {
+	if (openGrid == 7 && Q7Winner == false && Q7Tie == false) {
         Panel1->Opacity = 0.5;
         Panel1->HitTest = true;
         Panel2->Opacity = 0.5;
@@ -1146,10 +1285,10 @@ void __fastcall TForm3::ButtonClick(TObject* Sender)
         Panel9->Opacity = 0.5;
         Panel9->HitTest = true;
     }
-    else if (openGrid == 7 && Q7Winner == true) {
+	else if ((openGrid == 7 && Q7Winner == true) || (openGrid == 7 && Q7Tie == true)) {
         ClearPanels();
     }
-    if (openGrid == 8 && Q8Winner == false) {
+	if (openGrid == 8 && Q8Winner == false && Q8Tie == false) {
         Panel1->Opacity = 0.5;
         Panel1->HitTest = true;
         Panel2->Opacity = 0.5;
@@ -1169,10 +1308,10 @@ void __fastcall TForm3::ButtonClick(TObject* Sender)
         Panel9->Opacity = 0.5;
         Panel9->HitTest = true;
     }
-    else if (openGrid == 8 && Q8Winner == true) {
+	else if ((openGrid == 8 && Q8Winner == true) || (openGrid == 8 && Q8Tie == true)) {
         ClearPanels();
     }
-    if (openGrid == 9 && Q9Winner == false) {
+	if (openGrid == 9 && Q9Winner == false && Q9Tie == false) {
         Panel1->Opacity = 0.5;
         Panel1->HitTest = true;
         Panel2->Opacity = 0.5;
@@ -1192,8 +1331,8 @@ void __fastcall TForm3::ButtonClick(TObject* Sender)
         Panel9->Opacity = 0;
         Panel9->HitTest = false;
     }
-    else if (openGrid == 9 && Q9Winner == true) {
-        ClearPanels();
+	else if ((openGrid == 9 && Q9Winner == true) || (openGrid == 9 && Q9Tie == true)) {
+		ClearPanels();
     }
 
     if (currentPlayerSymbol == 'X') {

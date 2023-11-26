@@ -13,7 +13,7 @@
 #include <FMX.Filter.Effects.hpp>
 #include <FMX.StdCtrls.hpp>
 //---------------------------------------------------------------------------
-class TForm3 : public TForm
+class TSuperTicTacToe : public TForm
 {
 __published:	// IDE-managed Components
 	TButton* Button1;
@@ -218,6 +218,15 @@ __published:	// IDE-managed Components
 	TImage *oIndicate;
 	TImage *GUIBorder;
 	TImage *OWIN;
+	TImage *aTIEIMG;
+	TImage *aTIEIMG2;
+	TImage *aTIEIMG3;
+	TImage *aTIEIMG4;
+	TImage *aTIEIMG5;
+	TImage *aTIEIMG6;
+	TImage *aTIEIMG7;
+	TImage *aTIEIMG8;
+	TImage *aTIEIMG9;
 	void __fastcall ButtonClick(TObject* Sender);
 
 
@@ -226,6 +235,9 @@ __published:	// IDE-managed Components
 
 
 private:	// User declarations
+
+  public: // User declarations
+	__fastcall TSuperTicTacToe(TComponent* Owner);
 	bool CheckIsSmallWinnerQ1(UnicodeString& winnerSymbol);
 	bool CheckIsSmallWinnerQ2(UnicodeString& winnerSymbol);
 	bool CheckIsSmallWinnerQ3(UnicodeString& winnerSymbol);
@@ -239,13 +251,14 @@ private:	// User declarations
 	int NextGrid(TButton* lastClickedButton);
 	void HandlePlayerMove();
 	void ClearPanels();
-public: // User declarations
-	__fastcall TForm3(TComponent* Owner);
+	bool CheckIfTieQ1();
 };
 //---------------------------------------------------------------------------
-extern PACKAGE TForm3* Form3;
+extern PACKAGE TSuperTicTacToe* SuperTicTacToe;
 //---------------------------------------------------------------------------
 #endif
+
+
 
 
 
