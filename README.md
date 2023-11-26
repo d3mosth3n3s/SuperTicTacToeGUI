@@ -20,4 +20,4 @@ When a player makes a move in one of the smaller grids, their opponent must make
 4. Navigate to Win32 -> Debug -> SuperTicTacToe.exe
 5. Click on SuperTicTacToe.exe
 
-*Contributors: Anika Hedden, Kenneth Chau, Muhammad Safiullah*
+*Contributors: Anika Hedden, Kenneth Chau, Muhammad Saffiullah*
