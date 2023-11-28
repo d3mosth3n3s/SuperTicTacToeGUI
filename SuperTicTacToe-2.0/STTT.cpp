@@ -1,9 +1,4 @@
 //---------------------------------------------------------------------------
-// TODO:
-// - Account for a tied game
-// - play again? button
-// - maybe figure out how to make a standalone exe
-// - clean up the code
 //
 #include <fmx.h>
 #include <Vcl.Controls.hpp>
